@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>copy_of_intro_to_jupyter_notebooks</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Copy_of_Intro_to_Jupyter_Notebooks_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Copy_of_Intro_to_Jupyter_Notebooks_files/libs/quarto-html/quarto.js"></script>
+<script src="Copy_of_Intro_to_Jupyter_Notebooks_files/libs/quarto-html/popper.min.js"></script>
+<script src="Copy_of_Intro_to_Jupyter_Notebooks_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Copy_of_Intro_to_Jupyter_Notebooks_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Copy_of_Intro_to_Jupyter_Notebooks_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Copy_of_Intro_to_Jupyter_Notebooks_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Copy_of_Intro_to_Jupyter_Notebooks_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Copy_of_Intro_to_Jupyter_Notebooks_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Copy_of_Intro_to_Jupyter_Notebooks_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+
+<h1>
+Introduction to Jupyter Notebooks
+</h1>
+<p>This notebook is composed of many <em>chunks</em>, containing either python code or formatted text. In this activity you will practice both. Make sure to always run each code chunk once as you work past it.</p>
+<p><em>Get in a group of 3-4 people. You should each fill out your own copy of this notebook.</em></p>
+<ol type="1">
+<li>Write the names of your group members below, as a bullet point list.</li>
+</ol>
+<ul>
+<li>Melissa Paich</li>
+<li>Sarah Jacobsen</li>
+<li>Ashley Hiraki</li>
+<li>Miranda Jeng</li>
+</ul>
+<ol start="2" type="1">
+<li><p>Find something that all of you enjoy for fun. Insert a related picture or meme below. <img src="data:image/jpeg;base64,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" class="img-fluid" alt="Beach Photo.jpeg"></p></li>
+<li><p>Everyone decide your comfort level on a scale of 1-10 in python, and your favorite colors from <a href="https://matplotlib.org/stable/gallery/color/named_colors.html">this</a> list.</p></li>
+</ol>
+<p>Edit the code below so that it has your names and corresponding comfort levels.</p>
+<div id="group_info-py" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>group_data <span class="op">=</span> {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'names'</span>: [<span class="st">"Melissa"</span>, <span class="st">"Sarah"</span>, <span class="st">"Ashley"</span>, <span class="st">"Miranda"</span>, <span class="st">"Paige"</span>],</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'colors'</span>: [<span class="st">"orange"</span>, <span class="st">"tab:pink"</span>, <span class="st">"lavender"</span>, <span class="st">"lightseagreen"</span>, <span class="st">"teal"</span>],</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'comfort'</span>: [<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li>Click “Run” on the code chunk below and see the plot that is produced.</li>
+</ol>
+<p>(Do not edit the code below!)</p>
+<div id="cell-plot-py" class="cell" data-outputid="91283802-a48a-46bf-fcce-ee5ee3eac64e" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>plt.bar(x <span class="op">=</span> group_data[<span class="st">'names'</span>], height <span class="op">=</span> group_data[<span class="st">'comfort'</span>], color <span class="op">=</span> group_data[<span class="st">'colors'</span>])</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Comfort with python"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="plot-py" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Copy_of_Intro_to_Jupyter_Notebooks_files/figure-html/plot-py-output-1.png" class="img-fluid figure-img"></p>
+<figcaption>Our comfort levels with python</figcaption>
+</figure>
+</div>
+</div>
+</div>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
